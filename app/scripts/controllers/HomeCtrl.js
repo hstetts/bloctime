@@ -1,8 +1,16 @@
 (function() {
-    function HomeCtrl() {
+    function HomeCtrl(time) {
+
+      this.time = null;
+
+
+      this.startTimer = function() {
+
+    
+     }
     }
 
     angular
         .module('bloctime')
-        .controller('HomeCtrl', [HomeCtrl]);
+        .controller('HomeCtrl', ['time', HomeCtrl]);
 })();
