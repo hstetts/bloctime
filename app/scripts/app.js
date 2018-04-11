@@ -16,6 +16,7 @@
 
 
      angular
-         .module('bloctime', ['ui.router', 'firebase'])
+         .module('bloctime', ['ui.router', 'firebase', ])
+         .filter('timecode', ['timecode'])
          .config(config);
  })();
