@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="bloctime">
+<html ng-app="blocTime">
 <head lang="en">
    <meta charset="UTF-8">
-   <title>Bloc Base Project</title>
+   <title>Bloctime</title>
    <link rel="stylesheet" href="/styles/main.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
    <ui-view></ui-view>
@@ -13,13 +14,12 @@
    <!-- AngularUI Router -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
    <!-- FireBase -->
-   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
    <!-- AngularFire -->
    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
-   <script src="/scripts/app.js"> </script>
+   <script src="/scripts/app.js"></script>
    <script src="/scripts/controllers/HomeCtrl.js"></script>
 
    <!-- Timecode filter -->
@@ -39,7 +39,6 @@
     firebase.initializeApp(config);
    </script>
 
-   <!-- Application Files -->
-   <script src="/scripts/app.js"></script>
+
 </body>
 </html>
