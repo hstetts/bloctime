@@ -1,10 +1,20 @@
 .container {
-  display: flex;
-  margin-top: 25%;
-  margin-bottom: 25%;
   text-align: center;
 }
+
 .timer {
+  display: relative;
   margin: 0 auto;
+  margin-top: 25%;
+  margin-bottom: 25%;
   width: 800px;
+}
+
+.break-timer {
+  display: fixed;
+  margin-top: 15%;
+  margin-left: 75%;
+  margin-bottom: 5%;
+  width: 300px;
+
 }
