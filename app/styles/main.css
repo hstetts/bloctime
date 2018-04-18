@@ -10,11 +10,22 @@
   width: 800px;
 }
 
-.break-timer {
+/* .break-timer {
   display: fixed;
-  margin-top: 15%;
+  margin: 0 auto;
+  margin-top: 45%;
   margin-left: 75%;
   margin-bottom: 5%;
   width: 300px;
 
 }
+
+.longBreak {
+  display: fixed;
+  margin: 0 auto;
+  margin-top: 45%;
+  margin-left: 75%;
+  margin-bottom: 5%;
+  width: 300px;
+
+} */
