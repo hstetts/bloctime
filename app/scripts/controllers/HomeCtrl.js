@@ -6,65 +6,79 @@
     $scope.breakSession = 4; //300//1800
     $scope.Timer = null;
     $scope.onBreak = false;
-    $scope.onWork = true;
+    $scope.timerRunning = true;
     $scope.num_workSessions = 0;
 
 
 		$scope.start = function() {
-      $scope.onWork = true;
-      $scope.onBreak = false;
-      $scope.num_workSessions += 1;
+      $scope.timerRunning = true;
+      $scope.count = 5;
+
       startWork = $interval(function() {
-        if($scope.count <= 0) {
-  			     $interval.cancel(startWork);
-             $scope.take_break();
-             return;
-  			}
-          $scope.count--;
-          console.log("start work!")
+        $scope.count--;
 
-  	  }, 1000);
-      console.log("Work Session #: " + $scope.num_workSessions);
-    }
+        if($scope.count = 0) {
+			     $interval.cancel(startWork);
+           $scope.timerRunning = false;
+           //console.log("Work Session #: " + $scope.num_workSessions);
 
-		$scope.stop = function() {
-      $scope.onWork = false;
-        if (angular.isDefined($scope.Timer)) {
-            $interval.cancel(startWork);
-            $scope.Timer = null;
+          if(!$scope.onBreak) {
+            $scope.num_workSessions++;
+            $scope.onBreak = true;
+            console.log("start work!")
+
+              if($scope.num_workSessions % 4 == 0) {
+                $scope.breakSession = 3; //1800
+                $scope.timerRunning = false;
+              } else {
+                $scope.count = 2;
+                $scope.timerRunning = false;
+              }
           }
-		};
+
+        $scope.onBreak = false;
+        $scope.count = 5;
+
+      }
+    }, 1000);
+
 
 		$scope.reset = function() {
-       $scope.onWork = false;
 			 $interval.cancel(startWork);
-			 $scope.count = 3;
+			 $scope.count = 5;
+       $scope.timerRunning = false;
 		}
+  }
 
-    $scope.take_break = function() {
-       $scope.onBreak = true;
-       $scope.breakSession = 3;
-       startBreak = $interval(function() {
-         if($scope.breakSession <= 0) {
-  			     $interval.cancel(startBreak);
-             $scope.onBreak = false;
-             $scope.onWork = true;
-             console.log("cancel break start");
-             return;
-         } else if($scope.num_workSessions % 4 == 0) {
-             console.log("long break!")
-             $scope.breakSession = 4;
-             $scope.onWork = false;
-             $scope.onBreak = true;
-             $scope.breakSession--;
-             $scope.num_workSessions = 0;
-         } else {
-           console.log("short break!")
-           $scope.breakSession--;
-         }
-    	 }, 1000);
-     }
-   };
+};
+
+// $scope.stop = function() {
+//   $scope.onWork = false;
+//     if (angular.isDefined($scope.Timer)) {
+//         $interval.cancel(startWork);
+//         $scope.Timer = null;
+//       }
+// };
+
+   //  $scope.take_break = function() {
+   //     $scope.onBreak = true;
+   //     startBreak = $interval(function() {
+   //       if($scope.breakSession <= 0) {
+  	// 		     $interval.cancel(startBreak);
+   //           console.log("cancel break start");
+   //           return;
+   //         }
+   //  		 else if($scope.num_workSessions % 4 == 0) {
+   //         console.log("long break!")
+   //         $scope.breakSession = 4;
+   //         $scope.breakSession--;
+   //       }
+   //
+   //         $scope.breakSession--;
+   //         console.log("short break!")
+   //  	 }, 1000);
+   //   }
+   // };
 
     // $scope.take_longBreak = function() {
     //     $scope.onBreak = true;

@@ -16,24 +16,23 @@
     <button type="button" class="btn btn-outline-success" ng-click="take_longBreak">Take Break</button>
   </div> -->
 
-	<div class="work-timer col-xs-8" ng-hide="onBreak">
+	<div class="timer col-xs-8" >
 		<div>
 			<h1> {{count | timecode}} </h1>
 
-			<button type="button" class="btn btn-outline-success" aria-pressed="true" ng-click="start()" ng-show="!workTimerRunning">Start</button>
-			<button type="button" class="btn btn-outline-danger" aria-pressed="true" ng-click="stop()" ng-show="workTimerRunning">Stop</button>
-			<button type="button" class="btn btn-outline-warning" aria-pressed="true" ng-click="reset()">Reset</button>
+			<button type="button" class="btn btn-outline-success" ng-click="start()">Start</button>
+			<button type="button" class="btn btn-outline-danger"  ng-click="stop()">Stop</button>
+			<button type="button" class="btn btn-outline-warning" ng-click="reset()">Reset</button>
 		</div>
 	</div>
-	<div class="break-timer col-md-8" ng-show="onBreak">
+	<div class="break-timer col-md-8" >
 		<div>
 			<h1> {{ breakSession | timecode}}
 			</h1>
-			<button type="button" class="btn btn-warning btn-lg" aria-pressed="true" ng-click="take_break()">Take Break</button>
-			<button type="button" class="btn btn-outline-warning" aria-pressed="true" ng-click="resetBreak()">Reset</button>
+			<button type="button" class="btn btn-warning btn-lg" ng-click="take_break()">Take Break</button>
+			<button type="button" class="btn btn-outline-warning" ng-click="resetBreak()">Reset</button>
 		</div>
-
-
+	</div>
 
 
 </section>
