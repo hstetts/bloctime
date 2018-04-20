@@ -1,11 +1,16 @@
 (function() {
-    function HomeCtrl($scope, $interval, $filter) {
+    function TimerCtrl($scope, $interval, $filter) {
+
+    var mySound = new buzz.sound( "assets/sounds/timer_tune.mp3", {
+        preload: true
+    });
+
 
 		//Initialize variables
-    var workSession = 1500;
-    var short_breakSession = 300;
-    var long_breakSession = 1800; //300//1800
-		$scope.count = workSession; //1500;
+    var workSession = 1500; //1500
+    var short_breakSession = 300; //300
+    var long_breakSession = 1800; //1800
+		$scope.count = workSession;
     $scope.Timer = null;
     $scope.onBreak = false;
     $scope.timerRunning = true;
@@ -22,6 +27,7 @@
         if($scope.count === 0) {
 			     $interval.cancel(startWork);
            $scope.timerRunning = false;
+           mySound.play();
 
           if(!$scope.onBreak) {
             $scope.num_workSessions++;
@@ -69,5 +75,5 @@
 
     angular
         .module('blocTime')
-        .controller('HomeCtrl', ['$scope', '$interval', HomeCtrl]);
+        .controller('TimerCtrl', ['$scope', '$interval', TimerCtrl]);
 })();
