@@ -1,5 +1,19 @@
-<section class="container">
+<div class="wrapper">
+<nav id='sidebar'>
+		<h1 class="sidebar-header"> Task History: </h1>
+		<ul ng-repeat="task in tasks.all">
+			<li> {{task.tasklist}} </li>
+		</ul>
+		<form class="form-group" ng-submit="tasks.addTask(text)">
+				<h2>Add New Task:</h2>
+				<input ng-model="text" type="text" class="form-control"/>
+				<button type="submit" class="btn btn-info">Add</button>
+		</form>
 
+</nav>
+
+
+<section class="container">
 	<div class="timer col-md-8" >
 		<div>
 			<h1> {{ count | timecode }} </h1>
@@ -10,5 +24,5 @@
 			<button type="button" class="btn btn-outline-warning" ng-click="reset()">Reset</button>
 		</div>
 	</div>
-
 </section>
+</div>

@@ -1,5 +1,8 @@
 (function() {
-    function TimerCtrl($scope, $interval, $filter) {
+    function TimerCtrl(Tasks, $scope, $interval, $filter) {
+
+    $scope.tasks = Tasks;
+
 
     var mySound = new buzz.sound( "assets/sounds/timer_tune.mp3", {
         preload: true
@@ -75,5 +78,5 @@
 
     angular
         .module('blocTime')
-        .controller('TimerCtrl', ['$scope', '$interval', TimerCtrl]);
+        .controller('TimerCtrl', ['Tasks', '$scope', '$interval', TimerCtrl]);
 })();
