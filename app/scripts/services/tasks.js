@@ -8,7 +8,8 @@
 
     var addTask = function(text) {
 		  tasks.$add({
-			  tasklist: text
+			  tasklist: text,
+        timestamp: Date.now()
 		  });
 	  }
 

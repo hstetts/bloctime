@@ -1,16 +1,19 @@
 <div class="wrapper">
-<nav id='sidebar'>
-		<h1 class="sidebar-header"> Task History: </h1>
-		<ul ng-repeat="task in tasks.all">
-			<li> {{task.tasklist}} </li>
-		</ul>
-		<form class="form-group" ng-submit="tasks.addTask(text)">
+	<nav id='sidebar'>
+		<div class="sidebar-history">
+			<h1 class="sidebar-header"> Task History: </h1>
+			<ul ng-repeat="task in tasks.all | orderBy: ' -timestamp'">
+				<li> {{ task.tasklist }} </li>
+			</ul>
+		</div>
+		<div class="sidebar-form">
+			<form class="form-group" ng-submit="tasks.addTask(text)">
 				<h2>Add New Task:</h2>
-				<input ng-model="text" type="text" class="form-control"/>
+				<input ng-model="text" class="form-control"/>
 				<button type="submit" class="btn btn-info">Add</button>
-		</form>
-
-</nav>
+			</form>
+		</div>
+	</nav>
 
 
 <section class="container">
